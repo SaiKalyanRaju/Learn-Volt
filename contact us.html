@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Learn Volt</title>
+        <link rel="stylesheet" type="text/css" href="css/contact us.css">
+    </head>
+    <body>
+        <header>
+                <div class="logo">
+                    <img src="Images/logo.png">
+                <ul>
+                    <li><a href="aboutus.html">About</a></li>
+                    <li><a href="News.html">News</a></li>
+                    <li><a href="FAQs.html">FAQs</a></li>
+                    <li><a href="contact us.html">Contact us</a></li>
+                    <li class="active"><a href="Joinus.html">Join us</a></li>
+                </ul>
+            </div>
+            <div class="lname">Learn Volt</div>
+        </header>
+        <div class="Contact-us">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+        </div>
+        <form method="post">
+            <h1>Welcome Back
+                <span>Login to your Account</span>
+            </h1>
+            <label for="name">Name</label>
+            <input type="text" id="fname" name="Name" placeholder="Enter your Name" id="name">
+
+            <label for="number">Number</label>
+            <input type="number"  id="number" name="Number" placeholder="Enter your Number" id="number">
+
+            <label for="mail">Mail</label>
+            <input type="mail"  id="mail" name="Mail" placeholder="Enter your Mail id" id="mail">
+
+            <button>Contact Us</button>
+            <h2>Thanks for Contacting</h2>
+        </form>
+        <script>
+            const scriptURL ="https://docs.google.com/spreadsheets/d/1Fdhc1GT7mrJtAtzxueOP0CczHofFazRD9lN_cE-hSSc/edit#gid=0";
+
+            const form= document.forms['googkle-sheet']
+
+            form.addEvenListener('Contact Us', e => {
+                e.preventDefult()
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(Response => alert("Thanks for Contacing us..! We will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+        </script>
+        </body>
+</html>
